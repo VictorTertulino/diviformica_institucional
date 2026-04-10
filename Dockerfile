@@ -18,8 +18,8 @@ RUN npm run build
 FROM node:20-alpine
 WORKDIR /app
 
-# Copy Frontend build artifacts
-COPY --from=frontend-builder /app/frontend/dist /app/frontend/dist
+# Copy Frontend build artifacts into the path the backend expects
+COPY --from=frontend-builder /app/frontend/dist /app/backend/frontend/dist
 
 # Copy Backend production files
 COPY --from=backend-builder /app/backend/dist-server /app/backend/dist-server

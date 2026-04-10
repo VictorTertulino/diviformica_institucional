@@ -52,10 +52,10 @@ module.exports = {
         display: ['Montserrat', 'system-ui', 'sans-serif'],
       },
       fontSize: {
-        'display-xl': ['clamp(3rem, 8vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.02em', fontWeight: '800' }],
-        'display-lg': ['clamp(2.5rem, 5vw, 4.5rem)', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '700' }],
-        'display-md': ['clamp(1.8rem, 3vw, 3rem)', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '700' }],
-        'body-lg': ['1.25rem', { lineHeight: '1.8', fontWeight: '300' }],
+        'display-xl': ['clamp(2rem, 8vw, 7rem)', { lineHeight: '0.95', letterSpacing: '-0.02em', fontWeight: '800' }],
+        'display-lg': ['clamp(1.8rem, 5vw, 4.5rem)', { lineHeight: '1', letterSpacing: '-0.02em', fontWeight: '700' }],
+        'display-md': ['clamp(1.5rem, 3vw, 3rem)', { lineHeight: '1.1', letterSpacing: '-0.01em', fontWeight: '700' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.8', fontWeight: '300' }],
       },
       spacing: {
         'section': 'clamp(80px, 12vw, 160px)',

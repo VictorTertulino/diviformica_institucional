@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   template: `
-    <a href="https://link.diviformica.com.br/" 
+    <a href="https://wa.me/556334153022" 
        target="_blank" 
        rel="noopener"
        class="fixed bottom-8 right-8 z-50 group flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-[0_10px_30px_rgba(37,211,102,0.4)] hover:scale-110 active:scale-95 transition-all duration-300">

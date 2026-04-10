@@ -1,0 +1,51 @@
+<section id="products" class="section-padding bg-carbon-950 relative overflow-hidden">
+  <!-- Ambient light blobs -->
+  <div class="absolute top-0 left-1/4 w-[500px] h-[500px] bg-navy-600/8 blur-[150px] rounded-full"></div>
+  <div class="absolute bottom-0 right-1/4 w-[400px] h-[400px] bg-champagne-500/5 blur-[120px] rounded-full"></div>
+
+  <div class="max-w-[1440px] mx-auto relative z-10">
+
+    <div class="flex flex-col lg:flex-row justify-between lg:items-end mb-20 gap-6">
+      <div>
+        <span class="eyebrow-light mb-4 block">Catálogo Premium</span>
+        <h2 class="text-display-lg text-white">
+          Materiais que definem<br/>o padrão do mercado.
+        </h2>
+      </div>
+      <p class="text-body-lg text-carbon-400 max-w-md text-balance">
+        Cada produto é selecionado para garantir performance, estética e durabilidade em projetos de alto padrão.
+      </p>
+    </div>
+
+    <!-- Balanced 2x2 Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div *ngFor="let product of products"
+        class="bento-item group relative overflow-hidden min-h-[340px] md:min-h-[400px]">
+        
+        <!-- Image -->
+        <div class="img-container absolute inset-0">
+          <img [src]="product.image" [alt]="product.title" loading="lazy" />
+        </div>
+
+        <!-- Gradient -->
+        <div class="absolute inset-0 bg-gradient-to-t from-carbon-950 via-carbon-950/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-500"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 flex flex-col justify-end h-full p-8 md:p-10">
+          <span class="inline-block w-fit px-3 py-1 glass-panel-dark rounded-full text-[11px] font-semibold tracking-[0.15em] uppercase text-white/70 mb-4 
+            opacity-0 group-hover:opacity-100 transition-all duration-500 -translate-y-2 group-hover:translate-y-0">
+            {{ product.tag }}
+          </span>
+          <h3 class="text-2xl md:text-display-md font-display font-bold text-white mb-2">
+            {{ product.title }}
+          </h3>
+          <p class="text-white/50 text-sm md:text-base font-light leading-relaxed max-w-md
+            opacity-0 group-hover:opacity-100 transition-all duration-500 delay-75 translate-y-2 group-hover:translate-y-0">
+            {{ product.desc }}
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply font-sans text-carbon-800 bg-carbon-50;
+    font-feature-settings: 'cv11', 'ss01';
+    font-variation-settings: 'opsz' 32;
+  }
+
+  ::selection {
+    @apply bg-navy-600/20 text-navy-950;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-carbon-950;
+    text-wrap: balance;
+  }
+
+  img {
+    @apply select-none;
+    -webkit-user-drag: none;
+  }
+}
+
+@layer components {
+  /* Glassmorphism Panel */
+  .glass-panel {
+    @apply bg-white/60 backdrop-blur-xl border border-white/30;
+    box-shadow: 
+      0 0 0 1px rgba(255, 255, 255, 0.1),
+      0 8px 40px rgba(0, 0, 0, 0.04),
+      inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-panel-dark {
+    @apply bg-carbon-950/60 backdrop-blur-xl border border-white/5;
+    box-shadow:
+      0 0 0 1px rgba(255, 255, 255, 0.03),
+      0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Bento Grid Item */
+  .bento-item {
+    @apply rounded-[1.5rem] overflow-hidden relative transition-all duration-500;
+  }
+
+  .bento-item:hover {
+    @apply shadow-2xl;
+    transform: translateY(-4px);
+  }
+
+  /* Section Spacing */
+  .section-padding {
+    @apply py-section px-6 lg:px-16 xl:px-24;
+  }
+
+  /* Overlapping Text Effect */
+  .text-overlap {
+    @apply absolute -top-6 left-0 font-display text-[8rem] md:text-[12rem] font-black text-carbon-100/50 select-none pointer-events-none leading-none;
+  }
+
+  /* Image container optimized for high-res */
+  .img-container {
+    @apply overflow-hidden bg-carbon-100;
+  }
+  
+  .img-container img {
+    @apply w-full h-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)];
+    will-change: transform;
+  }
+
+  .img-container:hover img {
+    transform: scale(1.06);
+  }
+
+  /* Label / Eyebrow */
+  .eyebrow {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-navy-600;
+  }
+
+  .eyebrow-light {
+    @apply text-xs font-semibold tracking-[0.2em] uppercase text-navy-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  /* Stagger children animation */
+  .stagger > * {
+    @apply opacity-0 animate-fade-up;
+  }
+  .stagger > *:nth-child(1) { animation-delay: 0.1s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.2s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.3s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.4s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.5s; }
+  .stagger > *:nth-child(6) { animation-delay: 0.6s; }
+}

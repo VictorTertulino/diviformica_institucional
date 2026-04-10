@@ -1,0 +1,44 @@
+<section id="obras" class="section-padding bg-carbon-50 relative overflow-hidden">
+  <span class="text-overlap" aria-hidden="true">OBRA</span>
+
+  <div class="max-w-[1440px] mx-auto relative z-10">
+
+    <div class="flex flex-col lg:flex-row justify-between lg:items-end mb-20 gap-6">
+      <div>
+        <span class="eyebrow mb-4 block">Portfólio</span>
+        <h2 class="text-display-lg text-carbon-950">
+          Projetos que falam<br/>por si mesmos.
+        </h2>
+      </div>
+      <p class="text-body-lg text-carbon-500 max-w-sm text-balance">
+        Cada obra é a validação do nosso compromisso com excelência, pontualidade e acabamento de classe mundial.
+      </p>
+    </div>
+
+    <!-- Masonry Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
+      <div *ngFor="let obra of obras; let i = index"
+        class="bento-item group img-container relative"
+        [ngClass]="i === 0 ? 'md:col-span-7 aspect-[16/10]' : 'md:col-span-5 aspect-[4/3]'">
+        <img [src]="obra.image" [alt]="obra.title" loading="lazy" />
+        <div class="absolute inset-0 bg-gradient-to-t from-carbon-950/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-8">
+          <span class="inline-block glass-panel-dark text-[11px] font-semibold tracking-[0.15em] uppercase text-white/70 px-3 py-1 rounded-full mb-3">
+            {{ obra.cat }}
+          </span>
+          <h3 class="text-white font-display font-bold text-xl">{{ obra.title }}</h3>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="mt-12 flex justify-center">
+      <a href="#contact" class="group px-8 py-4 bg-carbon-950 text-white rounded-full font-semibold text-sm tracking-wide uppercase hover:bg-carbon-800 transition-all duration-300 flex items-center gap-3">
+        Solicitar Projeto Similar
+        <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

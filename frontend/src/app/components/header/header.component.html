@@ -1,0 +1,54 @@
+<header class="fixed w-full top-0 z-50 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]"
+  [ngClass]="isScrolled() ? 'glass-panel py-3 shadow-sm' : 'bg-transparent py-6'">
+  <div class="max-w-[1440px] mx-auto px-6 lg:px-16 xl:px-24 flex justify-between items-center">
+
+    <!-- Logo -->
+    <a href="#">
+      <img *ngIf="!isScrolled()" src="assets/images/logo-branca.png" alt="Divifórmica" class="h-8 md:h-10 w-auto transition-all duration-300" />
+      <img *ngIf="isScrolled()" src="assets/images/logo-azul.png" alt="Divifórmica" class="h-8 md:h-10 w-auto transition-all duration-300" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a *ngFor="let item of navItems" [href]="item.href"
+        class="px-4 py-2 text-[13px] font-medium tracking-wide uppercase transition-all duration-300 rounded-lg hover:bg-carbon-950/5"
+        [ngClass]="isScrolled() ? 'text-carbon-600 hover:text-carbon-950' : 'text-white/80 hover:text-white hover:bg-white/10'">
+        {{ item.label }}
+      </a>
+      <a href="https://link.diviformica.com.br/" target="_blank" rel="noopener"
+        class="ml-4 px-6 py-2.5 text-[13px] font-semibold tracking-wide uppercase rounded-full transition-all duration-300 hover:scale-[1.03]"
+        [ngClass]="isScrolled() ? 'bg-carbon-950 text-white hover:bg-carbon-800' : 'bg-white text-carbon-950 hover:bg-white/90'">
+        Orçamento
+      </a>
+    </nav>
+
+    <!-- Mobile Toggle -->
+    <button class="lg:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5" (click)="toggleMobile()">
+      <span class="block w-6 h-[1.5px] transition-all duration-300"
+        [ngClass]="isScrolled() ? 'bg-carbon-950' : 'bg-white'"
+        [style.transform]="isMobileOpen() ? 'rotate(45deg) translateY(4.5px)' : 'none'"></span>
+      <span class="block w-6 h-[1.5px] transition-all duration-300"
+        [ngClass]="isScrolled() ? 'bg-carbon-950' : 'bg-white'"
+        [style.opacity]="isMobileOpen() ? '0' : '1'"></span>
+      <span class="block w-6 h-[1.5px] transition-all duration-300"
+        [ngClass]="isScrolled() ? 'bg-carbon-950' : 'bg-white'"
+        [style.transform]="isMobileOpen() ? 'rotate(-45deg) translateY(-4.5px)' : 'none'"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div *ngIf="isMobileOpen()" class="lg:hidden glass-panel mt-2 mx-4 rounded-2xl p-6 animate-fade-up">
+    <nav class="flex flex-col gap-1">
+      <a *ngFor="let item of navItems" [href]="item.href"
+        class="text-carbon-800 font-medium py-3 px-4 rounded-xl hover:bg-carbon-100 transition-colors text-sm tracking-wide uppercase"
+        (click)="toggleMobile()">
+        {{ item.label }}
+      </a>
+      <a href="https://link.diviformica.com.br/" target="_blank" rel="noopener"
+        class="mt-3 bg-carbon-950 text-white text-center rounded-full py-3.5 font-semibold text-sm tracking-wide uppercase"
+        (click)="toggleMobile()">
+        Solicitar Orçamento
+      </a>
+    </nav>
+  </div>
+</header>
